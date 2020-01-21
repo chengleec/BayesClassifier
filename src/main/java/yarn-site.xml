@@ -24,7 +24,7 @@
     <!-- 指定RM的cluster id -->
     <property>
         <name>yarn.resourcemanager.cluster-id</name>
-        <value>yarn-ha</value>
+        <value>rm</value>
     </property>
 
     <!-- 指定RM的名字 -->
@@ -55,17 +55,19 @@
         <value>mapreduce_shuffle</value>
     </property>
     <property>
-        <name>yarn.application.classpath</name>
-        <value>
-            /home/hduser/hadoop/hadoop-2.8.5/etc/hadoop,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/common/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/common/lib/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/hdfs/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/hdfs/lib/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/mapreduce/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/mapreduce/lib/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/yarn/*,
-            /home/hduser/hadoop/hadoop-2.8.5/share/hadoop/yarn/lib/*
-        </value>
+        <!-- 启用自动恢复 -->
+        <name>yarn.resourcemanager.recovery.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <!-- 是否启用日志聚合 (可选) -->
+        <name>yarn.log-aggregation-enable</name>
+        <value>true</value>
+    </property>
+    <property>
+        <!-- 聚合日志的保存时间 (可选) -->
+        <name>yarn.log-aggregation.retain-seconds</name>
+        <value>86400</value>
     </property>
 </configuration>
